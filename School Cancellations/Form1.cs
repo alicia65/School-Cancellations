@@ -19,7 +19,9 @@ namespace School_Cancellations
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
+            double airTemperature = Convert.ToDouble(txtAirTemperature.Text);
+ 
+           
         }
     }
 }
