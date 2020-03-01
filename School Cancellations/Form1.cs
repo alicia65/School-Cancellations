@@ -19,41 +19,45 @@ namespace School_Cancellations
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            //Read data from Textboxes
-            double airTemperature = txtAirTemperature.Text;
-            double windChill = txtWindChill.Text;
-            double numOfSnowfall = txtSnowfall.Text;
 
-            //Retrieve current temp and display
-            if(getTemperatureText(airTemperature, windChill, numOfSnowfall, out double temp, out double tempErrorMessage)) 
+        }
+
+        public bool CheckTemp(double airTemp)
+        {
+            // Air temperature less than minus 25 is valid
+            if (airTemp < -25)
             {
-                lblAirTemperature.Text = temp;
-                lblWindChill.Text = temp;
-                lblSnowfall.Text = temp;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CheckWindChill(double windChill)
+        {
+            //Wind chill less than 35 below is valid
+            if (windChill < -35)
+            {
+                return true;
             }
             else 
             {
-                MessageBox.Show(tempErrorMessage, "Error");
+                return false;
             }
-
-            txtAirTemperature.Enabled = true;
-            txtWindChill.Enabled = true;
-            txtSnowfall.Enabled = true;
-
-
-            if (!ValidatePositiveDouble(txtAirTemperature.Text, out double airTemperature, out string tempErrorMessage))
+        }
+        public bool Checksnowfall(double snowfallOfInches)
+        {
+            //Snow falls of 6 inches or more are valid.
+            if (snowfallOfInches >= 6)
             {
-                MessageBox.Show(tempErrorMessage, "Air temperature Error");
-                txtAirTemperature.Focus();
-                return;
-
+                return true;
             }
-
-            double windChill = Double.Parse(txtWindChill.Text);
-            double numOfSnowfall = Double.Parse(txtSnowfall.Text);
-
-
-
+            else
+            {
+                return false;
+            }
         }
         private bool ValidatePositiveDouble(string text, out double number, out string temperrorMessage)
         {
@@ -84,32 +88,81 @@ namespace School_Cancellations
             {
                 temperrorMessage = "Enter a smaller number";
             }
+
+            return false;
         }
 
-        public bool getTemperatureText(double airTemperature, double windChill, double numSnowfall, out double temperatureText, out double tempErrorMessage)
-        {
-            airTemperature = -25F;
-            windChill = -35F;
-            numOfSnowfall = 6;
-            
-            
-            if (double.TryParse(textBox.Text, out number))
-            {
-                return true;
-            }
 
-            else
-            {
-
-            }
-            if (txtAirTemperature.Text == "")//Checks for entry data
-            {
-                MessageBox.Show("Air temperature is a required field.", "Entry Error");//Displays if user did not enter data
-            }
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtAirTemperature.Text, out double airTemp) == false)
+            {
+                MessageBox.Show("Air temperature must be a number", "Error");
+                return;
+            }
+
+            if (double.TryParse(txtSnowfall.Text, out double snowfall) == false)
+            {
+                MessageBox.Show("Snowfall must be positive", "Error");
+                return;
+            }
+
+            if (double.TryParse(txtWindChill.Text, out double windchill) == false)
+            {
+                MessageBox.Show("Windchill must  be a number", "Error");
+                return;
+            }
+
+            bool airTemperatureValid = CheckTemp(airTemp);//call CheckTemp method to check validation on air temperature
+            if(airTemperatureValid == true) 
+            {
+                btnTemp.Enabled = true;
+                lblAirTemperature.Text = "School cancelled";
+            }
+            else
+            {
+                lblAirTemperature.Text = "School not cancelled";
+            }
+
+            bool windChillValid = CheckWindChill(windChill);
+            if(windChillValid == true) 
+            {
+                btnTemp.Enabled = true;
+                lblWindChill.Text = "School cancelled";
+            }
+            else
+            {
+                lblWindChill.Text = "School not cancelled";
+            }
+
+            bool snowfallValid = Checksnowfall(snowfallOfInches);
+            if (snowfallValid == true)
+            {
+                btnTemp.Enabled = true;
+                lblSnowfall.Text = "School cancelled";
+            }
+            else
+            {
+                lblSnowfall.Text = "School not cancelled";
+            }
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Clear text fields in text boxes
+            txtAirTemperature.Text = string.Empty;
+            txtWindChill.Text = string.Empty;
+            txtSnowfall.Text = string.Empty;
+
+            txtAirTemperature.Focus();//starts at air temperature text box
+        }
     }
+}

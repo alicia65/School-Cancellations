@@ -34,6 +34,8 @@
             this.txtAirTemperature = new System.Windows.Forms.TextBox();
             this.txtWindChill = new System.Windows.Forms.TextBox();
             this.txtSnowfall = new System.Windows.Forms.TextBox();
+            this.btnTemp = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAirTemperature
@@ -85,11 +87,33 @@
             this.txtSnowfall.TabIndex = 2;
             this.txtSnowfall.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
+            // btnTemp
+            // 
+            this.btnTemp.Location = new System.Drawing.Point(18, 252);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(158, 23);
+            this.btnTemp.TabIndex = 3;
+            this.btnTemp.Text = "Temperature";
+            this.btnTemp.UseVisualStyleBackColor = true;
+            this.btnTemp.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(255, 252);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 340);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnTemp);
             this.Controls.Add(this.txtSnowfall);
             this.Controls.Add(this.txtWindChill);
             this.Controls.Add(this.txtAirTemperature);
@@ -112,6 +136,8 @@
         private System.Windows.Forms.TextBox txtAirTemperature;
         private System.Windows.Forms.TextBox txtWindChill;
         private System.Windows.Forms.TextBox txtSnowfall;
+        private System.Windows.Forms.Button btnTemp;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
