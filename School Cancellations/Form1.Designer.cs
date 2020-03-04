@@ -89,9 +89,9 @@
             // 
             // btnTemp
             // 
-            this.btnTemp.Location = new System.Drawing.Point(18, 252);
+            this.btnTemp.Location = new System.Drawing.Point(33, 252);
             this.btnTemp.Name = "btnTemp";
-            this.btnTemp.Size = new System.Drawing.Size(158, 23);
+            this.btnTemp.Size = new System.Drawing.Size(143, 23);
             this.btnTemp.TabIndex = 3;
             this.btnTemp.Text = "Temperature";
             this.btnTemp.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // 
             this.btnClear.Location = new System.Drawing.Point(255, 252);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(148, 23);
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;

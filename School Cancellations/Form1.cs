@@ -91,9 +91,7 @@ namespace School_Cancellations
 
             return false;
         }
-
-
-        
+               
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -114,7 +112,7 @@ namespace School_Cancellations
                 return;
             }
 
-            if (double.TryParse(txtWindChill.Text, out double windchill) == false)
+            if (double.TryParse(txtWindChill.Text, out double windhChill) == false)
             {
                 MessageBox.Show("Windchill must  be a number", "Error");
                 return;
@@ -152,10 +150,19 @@ namespace School_Cancellations
             {
                 lblSnowfall.Text = "School not cancelled";
             }
+            /*bool airTemperatureValid && windChillValid && snowfallValid =  CheckairTemperature, CheckWindChill, snowfall
+            {
+                btnTemp.Enabled = true;
+                lblAirTemperature.Text = "School cancelled";
+                lblAirTemperature.Text = "School not cancelled";
+                lblWindChill.Text = "School cancelled";
+                lblWindChill.Text = "School not cancelled";
+                lblSnowfall.Text = "School cancelled";
+                lblSnowfall.Text = "School not cancelled";
 
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
+            }      
+            */
+            private void btnClear_Click(object sender, EventArgs e)
         {
             //Clear text fields in text boxes
             txtAirTemperature.Text = string.Empty;
