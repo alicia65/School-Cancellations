@@ -40,18 +40,18 @@
             // 
             // lblAirTemperature
             // 
-            this.lblAirTemperature.Location = new System.Drawing.Point(47, 34);
+            this.lblAirTemperature.Location = new System.Drawing.Point(24, 34);
             this.lblAirTemperature.Name = "lblAirTemperature";
-            this.lblAirTemperature.Size = new System.Drawing.Size(129, 23);
+            this.lblAirTemperature.Size = new System.Drawing.Size(195, 23);
             this.lblAirTemperature.TabIndex = 0;
             this.lblAirTemperature.Text = "Air Temperature";
             this.lblAirTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWindChill
             // 
-            this.lblWindChill.Location = new System.Drawing.Point(56, 99);
+            this.lblWindChill.Location = new System.Drawing.Point(24, 99);
             this.lblWindChill.Name = "lblWindChill";
-            this.lblWindChill.Size = new System.Drawing.Size(100, 23);
+            this.lblWindChill.Size = new System.Drawing.Size(195, 23);
             this.lblWindChill.TabIndex = 1;
             this.lblWindChill.Text = "Wind Chill";
             this.lblWindChill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,7 +105,6 @@
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Form1
             // 

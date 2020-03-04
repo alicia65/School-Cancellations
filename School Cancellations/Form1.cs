@@ -42,7 +42,7 @@ namespace School_Cancellations
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
@@ -91,7 +91,7 @@ namespace School_Cancellations
 
             return false;
         }
-               
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -112,14 +112,14 @@ namespace School_Cancellations
                 return;
             }
 
-            if (double.TryParse(txtWindChill.Text, out double windhChill) == false)
+            if (double.TryParse(txtWindChill.Text, out double windChill) == false)
             {
                 MessageBox.Show("Windchill must  be a number", "Error");
                 return;
             }
 
             bool airTemperatureValid = CheckTemp(airTemp);//call CheckTemp method to check validation on air temperature
-            if(airTemperatureValid == true) 
+            if (airTemperatureValid == true)
             {
                 btnTemp.Enabled = true;
                 lblAirTemperature.Text = "School cancelled";
@@ -130,7 +130,7 @@ namespace School_Cancellations
             }
 
             bool windChillValid = CheckWindChill(windChill);
-            if(windChillValid == true) 
+            if (windChillValid == true)
             {
                 btnTemp.Enabled = true;
                 lblWindChill.Text = "School cancelled";
@@ -140,7 +140,7 @@ namespace School_Cancellations
                 lblWindChill.Text = "School not cancelled";
             }
 
-            bool snowfallValid = Checksnowfall(snowfallOfInches);
+            bool snowfallValid = Checksnowfall(snowfall);
             if (snowfallValid == true)
             {
                 btnTemp.Enabled = true;
@@ -150,26 +150,33 @@ namespace School_Cancellations
             {
                 lblSnowfall.Text = "School not cancelled";
             }
-            /*bool airTemperatureValid && windChillValid && snowfallValid =  CheckairTemperature, CheckWindChill, snowfall
+            if (airTemperatureValid && windChillValid && snowfallValid)//Checking three conditions for valications
             {
+                //Temperature button is executed because conditions are true, 
+                //theredfore label controls display text such as school cancelled. 
                 btnTemp.Enabled = true;
                 lblAirTemperature.Text = "School cancelled";
-                lblAirTemperature.Text = "School not cancelled";
                 lblWindChill.Text = "School cancelled";
-                lblWindChill.Text = "School not cancelled";
                 lblSnowfall.Text = "School cancelled";
+            }
+            else
+            {
+                // Three conditions are not valid. Therefore, when temperature button is activated, label controls show " School not cancelled".
+                btnTemp.Enabled = false;
+                lblAirTemperature.Text = "School not cancelled";
+                lblWindChill.Text = "School not cancelled";
                 lblSnowfall.Text = "School not cancelled";
+            }
 
-            }      
-            */
-            private void btnClear_Click(object sender, EventArgs e)
+        }
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            //Clear text fields in text boxes
+            // Clear text fields in text boxes
             txtAirTemperature.Text = string.Empty;
             txtWindChill.Text = string.Empty;
             txtSnowfall.Text = string.Empty;
-
-            txtAirTemperature.Focus();//starts at air temperature text box
         }
     }
-}
+}    
+    
+
